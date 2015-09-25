@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="KnoteBMBV" customClass="KnoteBMBV"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" userLabel="KnoteBMBV Responder" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="gfS-zA-KFo" userLabel="BMBView" customClass="KnoteBMBV">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="topline.png" translatesAutoresizingMaskIntoConstraints="NO" id="xmL-Yx-Trc" userLabel="TopLine"/>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QrC-oH-QPJ" userLabel="People">
+                    <rect key="frame" x="0.0" y="0.0" width="106" height="49"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="people_normal.png" translatesAutoresizingMaskIntoConstraints="NO" id="9kR-ja-u1e">
+                            <rect key="frame" x="36" y="8" width="34" height="20"/>
+                        </imageView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="People" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfu-Wh-AnX">
+                            <rect key="frame" x="0.0" y="30" width="106" height="21"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" tag="101" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8SU-KC-U78" userLabel="People Button">
+                            <rect key="frame" x="0.0" y="0.0" width="106" height="49"/>
+                            <state key="normal">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="menuAction:" destination="gfS-zA-KFo" eventType="touchUpInside" id="k9h-Nm-TUW"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eAH-Ki-PW6" userLabel="Pads">
+                    <rect key="frame" x="107" y="0.0" width="106" height="49"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pads_normal.png" translatesAutoresizingMaskIntoConstraints="NO" id="PzE-e4-bj1">
+                            <rect key="frame" x="42" y="7" width="21" height="22"/>
+                        </imageView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pads" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vR-Lp-gu9">
+                            <rect key="frame" x="0.0" y="30" width="106" height="21"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" tag="102" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOe-YS-3TF" userLabel="Pads Button">
+                            <rect key="frame" x="0.0" y="0.0" width="106" height="49"/>
+                            <state key="normal">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="menuAction:" destination="gfS-zA-KFo" eventType="touchUpInside" id="4Kd-GI-PvE"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d5c-7O-yBn" userLabel="Setting">
+                    <rect key="frame" x="214" y="0.0" width="106" height="49"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="setting_normal.png" translatesAutoresizingMaskIntoConstraints="NO" id="bKh-5W-rFx">
+                            <rect key="frame" x="43" y="8" width="20" height="20"/>
+                        </imageView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agD-Ii-mUw">
+                            <rect key="frame" x="0.0" y="30" width="106" height="21"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" tag="103" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Or2-Tu-a7O" userLabel="Setting Button">
+                            <rect key="frame" x="0.0" y="0.0" width="106" height="49"/>
+                            <state key="normal">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="menuAction:" destination="gfS-zA-KFo" eventType="touchUpInside" id="MKD-w9-2wY"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.97254908080000002" green="0.97254908080000002" blue="0.97254908080000002" alpha="1" colorSpace="deviceRGB"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="m_BMBView" destination="-1" id="ktW-Yu-C4m"/>
+                <outlet property="m_btnPads" destination="jOe-YS-3TF" id="Fmp-gE-FkA"/>
+                <outlet property="m_btnPeople" destination="8SU-KC-U78" id="sYb-Aa-bQ9"/>
+                <outlet property="m_btnSetting" destination="Or2-Tu-a7O" id="QRk-iC-7Ad"/>
+                <outlet property="m_imgPads" destination="PzE-e4-bj1" id="VjQ-Eb-2QN"/>
+                <outlet property="m_imgPeople" destination="9kR-ja-u1e" id="fbi-UH-Yp3"/>
+                <outlet property="m_imgSetting" destination="bKh-5W-rFx" id="7Dh-Mn-NFx"/>
+                <outlet property="m_lblPads" destination="2vR-Lp-gu9" id="ZIG-yG-Drh"/>
+                <outlet property="m_lblPeople" destination="mfu-Wh-AnX" id="0e4-OC-JHj"/>
+                <outlet property="m_lblSetting" destination="agD-Ii-mUw" id="lJd-ce-qbM"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="pads_normal.png" width="30" height="30"/>
+        <image name="people_normal.png" width="30" height="30"/>
+        <image name="setting_normal.png" width="30" height="30"/>
+        <image name="topline.png" width="320" height="1"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D136" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="AccountEntity" representedClassName="AccountEntity" syncable="YES">
+        <attribute name="account_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="google_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="google_linked" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="google_user_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastLoggedIn" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="loggedIn" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <relationship name="actions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActionEntity" inverseName="account" inverseEntity="ActionEntity" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserEntity" inverseName="account" inverseEntity="UserEntity" syncable="YES"/>
+    </entity>
+    <entity name="ActionEntity" representedClassName="ActionEntity" syncable="YES">
+        <attribute name="completed" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="dateConfirmed" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dateCreated" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dateSent" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="error" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="error_code" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="methodName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="parameters" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="result" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="retriesLeft" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="sent" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AccountEntity" inverseName="actions" inverseEntity="AccountEntity" syncable="YES"/>
+    </entity>
+    <entity name="ContactsEntity" representedClassName="ContactsEntity" syncable="YES">
+        <attribute name="account_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="archived" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="avatar" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="bgcolor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="contact_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="facebook_link" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gravatar_exist" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isMe" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="mainEmail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="me_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="position" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="total_topics" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="twitter_link" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MessageEntity" inverseName="contact" inverseEntity="MessageEntity" syncable="YES"/>
+        <relationship name="topics" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TopicsEntity" inverseName="contacts" inverseEntity="TopicsEntity" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserEntity" inverseName="contact" inverseEntity="UserEntity" syncable="YES"/>
+    </entity>
+    <entity name="FileEntity" representedClassName="FileEntity" syncable="YES">
+        <attribute name="belongId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="downloading" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="ext" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="file_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="full_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isDownloaded" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isImage" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isPDF" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isPNG" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sendFlag" optional="YES" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="size" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="knote" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MessageEntity" inverseName="files" inverseEntity="MessageEntity" syncable="YES"/>
+    </entity>
+    <entity name="MessageEntity" representedClassName="MessageEntity" syncable="YES">
+        <attribute name="account_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="archived" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="content" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="created_time" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="documentHash" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="documentHTML" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="editors" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="embeddedImages" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="file_ids" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="file_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="highlights" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hot" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="last_viewed" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="liked_account_ids" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="likes_count" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="message_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="need_send" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="on_cloud" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="removedHot" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="replys" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="topic_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="topic_type" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="view_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="contact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ContactsEntity" inverseName="messages" inverseEntity="ContactsEntity" syncable="YES"/>
+        <relationship name="files" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="FileEntity" inverseName="knote" inverseEntity="FileEntity" syncable="YES"/>
+    </entity>
+    <entity name="TopicsEntity" representedClassName="TopicsEntity" syncable="YES">
+        <attribute name="account_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="archived" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contact_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="created_time" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="hasNewActivity" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isArchived" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isSending" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="key_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="locked_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="needSend" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="order_to_set" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="order_user_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="participators" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="position" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="shared_account_ids" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="topic" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="topic_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="topic_type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="updated_time" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="viewers" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="contacts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ContactsEntity" inverseName="topics" inverseEntity="ContactsEntity" syncable="YES"/>
+    </entity>
+    <entity name="UserEntity" representedClassName="UserEntity" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="user_id" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AccountEntity" inverseName="user" inverseEntity="AccountEntity" syncable="YES"/>
+        <relationship name="contact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ContactsEntity" inverseName="user" inverseEntity="ContactsEntity" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="AccountEntity" positionX="0" positionY="0" width="128" height="165"/>
+        <element name="ActionEntity" positionX="9" positionY="153" width="128" height="225"/>
+        <element name="ContactsEntity" positionX="0" positionY="0" width="128" height="375"/>
+        <element name="FileEntity" positionX="0" positionY="0" width="128" height="240"/>
+        <element name="MessageEntity" positionX="0" positionY="0" width="128" height="525"/>
+        <element name="TopicsEntity" positionX="0" positionY="0" width="128" height="375"/>
+        <element name="UserEntity" positionX="0" positionY="0" width="128" height="135"/>
+    </elements>
+</model>

@@ -1,0 +1,151 @@
+PODS:
+  - AFNetworking (2.2.0):
+    - AFNetworking/NSURLConnection (= 2.2.0)
+    - AFNetworking/NSURLSession (= 2.2.0)
+    - AFNetworking/Reachability (= 2.2.0)
+    - AFNetworking/Security (= 2.2.0)
+    - AFNetworking/Serialization (= 2.2.0)
+    - AFNetworking/UIKit (= 2.2.0)
+  - AFNetworking/NSURLConnection (2.2.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.2.0):
+    - AFNetworking/NSURLConnection
+  - AFNetworking/Reachability (2.2.0)
+  - AFNetworking/Security (2.2.0)
+  - AFNetworking/Serialization (2.2.0)
+  - AFNetworking/UIKit (2.2.0):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - ASIHTTPRequest/Core (1.8.2):
+    - Reachability
+  - ASIHTTPRequest/S3 (1.8.2):
+    - ASIHTTPRequest/Core
+  - FXKeychain (1.5.3)
+  - LookbackSafe (1.0.4):
+    - SSZipArchive
+  - M13OrderedDictionary (1.0.6)
+  - MagicalRecord (3.0.0.dev.1437781124):
+    - MagicalRecord/Core (= 3.0.0.dev.1437781124)
+  - MagicalRecord/Core (3.0.0.dev.1437781124)
+  - Masonry (0.6.2)
+  - MCAWSS3Client (0.6.1):
+    - AFNetworking (~> 2.2.0)
+  - MLPAutoCompleteTextField (1.5)
+  - mongo-c-driver (0.8.1)
+  - ObjCMongoDB (1.0.0-dev):
+    - mongo-c-driver (~> 0.8.1)
+    - ObjCMongoDB/BSON (= 1.0.0-dev)
+    - ObjCMongoDB/Mongo (= 1.0.0-dev)
+    - ObjCMongoDB/OrderedDictionary (= 1.0.0-dev)
+  - ObjCMongoDB/BSON (1.0.0-dev):
+    - mongo-c-driver (~> 0.8.1)
+  - ObjCMongoDB/Mongo (1.0.0-dev):
+    - mongo-c-driver (~> 0.8.1)
+    - ObjCMongoDB/BSON (~> 1.0.0-dev)
+    - ObjCMongoDB/OrderedDictionary (~> 1.0.0-dev)
+  - ObjCMongoDB/OrderedDictionary (1.0.0-dev):
+    - mongo-c-driver (~> 0.8.1)
+  - ObjectiveDDP (0.1.9):
+    - M13OrderedDictionary
+    - SocketRocket (= 0.3.1-beta2)
+  - OMPromises (0.3.0):
+    - OMPromises/Core (= 0.3.0)
+  - OMPromises/Core (0.3.0)
+  - OMPromises/HTTP (0.3.0):
+    - OMPromises/Core
+  - pop (1.0.7)
+  - Reachability (3.2)
+  - SDWebImage (3.7.3):
+    - SDWebImage/Core (= 3.7.3)
+  - SDWebImage/Core (3.7.3)
+  - SocketRocket (0.3.1-beta2)
+  - SSZipArchive (0.3.2)
+
+DEPENDENCIES:
+  - AFNetworking (= 2.2.0)
+  - ASIHTTPRequest/S3 (~> 1.8.2)
+  - FXKeychain (from `https://github.com/nicklockwood/FXKeychain.git`)
+  - LookbackSafe
+  - M13OrderedDictionary
+  - MagicalRecord (from `https://github.com/magicalpanda/MagicalRecord.git`, branch
+    `release/3.0`)
+  - Masonry (from `https://github.com/cloudkite/Masonry.git`)
+  - MCAWSS3Client (from `https://github.com/mirego/MCAWSS3Client.git`, commit `0d041484fd53e3806021ab27e0b860c002a406db`)
+  - MLPAutoCompleteTextField (~> 1.5)
+  - ObjCMongoDB (from `https://github.com/Knotable/ObjCMongoDB.git`)
+  - ObjectiveDDP (from `https://github.com/boundsj/ObjectiveDDP.git`)
+  - OMPromises (from `https://github.com/b52/OMPromises.git`, branch `master`)
+  - OMPromises/HTTP (from `https://github.com/b52/OMPromises.git`, branch `master`)
+  - pop (~> 1.0)
+  - SDWebImage (from `https://github.com/rs/SDWebImage.git`)
+
+EXTERNAL SOURCES:
+  FXKeychain:
+    :git: https://github.com/nicklockwood/FXKeychain.git
+  MagicalRecord:
+    :branch: release/3.0
+    :git: https://github.com/magicalpanda/MagicalRecord.git
+  Masonry:
+    :git: https://github.com/cloudkite/Masonry.git
+  MCAWSS3Client:
+    :commit: 0d041484fd53e3806021ab27e0b860c002a406db
+    :git: https://github.com/mirego/MCAWSS3Client.git
+  ObjCMongoDB:
+    :git: https://github.com/Knotable/ObjCMongoDB.git
+  ObjectiveDDP:
+    :git: https://github.com/boundsj/ObjectiveDDP.git
+  OMPromises:
+    :branch: master
+    :git: https://github.com/b52/OMPromises.git
+  SDWebImage:
+    :git: https://github.com/rs/SDWebImage.git
+
+CHECKOUT OPTIONS:
+  FXKeychain:
+    :commit: 285370d85c317ec7ef31a4229bccfaabf6e96b49
+    :git: https://github.com/nicklockwood/FXKeychain.git
+  MagicalRecord:
+    :commit: a4298d584c10d33fa406e2f9db4091aae64cc6d3
+    :git: https://github.com/magicalpanda/MagicalRecord.git
+  Masonry:
+    :commit: 598b874615da6c0f317878a65062a3d89b2520dd
+    :git: https://github.com/cloudkite/Masonry.git
+  MCAWSS3Client:
+    :commit: 0d041484fd53e3806021ab27e0b860c002a406db
+    :git: https://github.com/mirego/MCAWSS3Client.git
+  ObjCMongoDB:
+    :commit: 587234119a3131f8153ef393cb07c0ac2166402e
+    :git: https://github.com/Knotable/ObjCMongoDB.git
+  ObjectiveDDP:
+    :commit: ccd6a64d1ca6f6774f05a969be25c0e30333e487
+    :git: https://github.com/boundsj/ObjectiveDDP.git
+  OMPromises:
+    :commit: 1154d9147b1892cb158e01d7a659d72d643f6297
+    :git: https://github.com/b52/OMPromises.git
+  SDWebImage:
+    :commit: a45c722fc8b863cd2b168c7d0bb642737d9ab8ff
+    :git: https://github.com/rs/SDWebImage.git
+
+SPEC CHECKSUMS:
+  AFNetworking: cede923cb26fba5e6309616e91fa33fe2e4a1b7b
+  ASIHTTPRequest: ec013992946676b7978dcbde6396d57312d21db4
+  FXKeychain: 2fe54573946ffef634f4e2a2851e6c8f4ea15e76
+  LookbackSafe: 602537d7416194db0c17a3328eca409af1307b96
+  M13OrderedDictionary: ca1bb2d743fd64500ffabee811d4bf2d0a65c908
+  MagicalRecord: 9469c1fa2e75afa01a4df6164889e632b7d0b872
+  Masonry: 362e8a1cc0beada4a4c4832d5e863da2a51533be
+  MCAWSS3Client: cbb1eca5cedc69e07390e688c1bacdc85f22bec6
+  MLPAutoCompleteTextField: ba4d507bbff2bd4f139d4197814fc8dd39caf77e
+  mongo-c-driver: 56558b8009f8d27549b23b62ce64fe33b9818703
+  ObjCMongoDB: a0af757496ee8b362c0ce51fcddc1a9ca5088854
+  ObjectiveDDP: 078339123eee4087614a61c3cac623a61eaf021d
+  OMPromises: 61a81f7acc077031a4747febece9738fa0ea279a
+  pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
+  SocketRocket: 7284ab9370a06c99aba92b2fe3a32aedd0f9a6fa
+  SSZipArchive: 11801759495fa4efb7512ef652eb0042d68305d7
+
+COCOAPODS: 0.37.2

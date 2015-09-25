@@ -1,0 +1,38 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <CoreData/CoreData.h>
+    #import "TestFlight.h"
+//    #define //NSLog(__FORMAT__, ...) TFLog((@"%s [Line %d] " __FORMAT__), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+    #define NSLog TFLog
+    #define MR_SHORTHAND
+    #define MR_ENABLE_ACTIVE_RECORD_LOGGING 0
+    #import "CoreData+MagicalRecord.h"
+    #import "NSString+MailExtensions.h"
+    #import "Masonry.h"
+    #import "MBProgressHUD.h"
+
+#endif
+
+
+#define LOG_METHOD //NSLog(@"%@", NSStringFromSelector(_cmd))
+#ifndef NDEBUG
+#define DLog(fmt, ...) TFLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+
+#define METHOD_LOG (NSLog(@"%@\n%s\n%@", NSStringFromSelector(_cmd), __FILE__, self))
+#else
+#define DLog(...)
+#define METHOD_LOG
+#endif

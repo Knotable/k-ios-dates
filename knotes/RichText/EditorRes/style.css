@@ -1,0 +1,27 @@
+#content, #control {
+    float:left;
+}
+
+#content {
+    width:640px;
+}
+
+#control {
+    width:320px;
+}
+
+#control textarea {
+    display:block;
+    width:auto;
+}
+
+body:after {
+    content: " ";
+    display: table;
+    clear:both;
+}
+
+.highlight {
+    color:#fff;
+    background:#050;
+}

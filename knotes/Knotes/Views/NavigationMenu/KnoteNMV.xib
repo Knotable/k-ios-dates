@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="KnoteBMBV" customClass="KnoteNMV"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" userLabel="KnoteBMBV Responder" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="TSx-Ic-NAn" userLabel="BMBView" customClass="KnoteNMV">
+            <rect key="frame" x="0.0" y="0.0" width="75" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gBd-C5-uJW" userLabel="Archive Button">
+                    <rect key="frame" x="0.0" y="9" width="22" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="trash_normal.png">
+                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="disabled" backgroundImage="trash_normal.png"/>
+                    <state key="selected" backgroundImage="trash_selected.png"/>
+                    <state key="highlighted" backgroundImage="trash_selected.png"/>
+                    <connections>
+                        <action selector="menuAction:" destination="TSx-Ic-NAn" eventType="touchUpInside" id="E0J-hS-25z"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XuP-2g-310" userLabel="Reorder Button">
+                    <rect key="frame" x="50" y="9" width="22" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <state key="normal" backgroundImage="order_normal.png">
+                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" backgroundImage="order_selected.png"/>
+                    <state key="highlighted" backgroundImage="order_selected.png"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="m_btnArchive" destination="gBd-C5-uJW" id="P61-8u-V21"/>
+                <outlet property="m_btnReorder" destination="XuP-2g-310" id="4Bo-2D-FsF"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="order_normal.png" width="22" height="22"/>
+        <image name="order_selected.png" width="22" height="22"/>
+        <image name="trash_normal.png" width="22" height="22"/>
+        <image name="trash_selected.png" width="22" height="22"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

@@ -1,0 +1,97 @@
+/*
+ 
+ Copyright (c) 2011, Philip Kluz (Philip.Kluz@zuui.org)
+ All rights reserved.
+ 
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+ 
+ * Redistributions of source code must retain the above copyright
+ notice, this list of conditions and the following disclaimer.
+ 
+ * Redistributions in binary form must reproduce the above copyright
+ notice, this list of conditions and the following disclaimer in the
+ documentation and/or other materials provided with the distribution.
+ 
+ * Neither the name of Philip Kluz, 'zuui.org' nor the names of its contributors may
+ be used to endorse or promote products derived from this software
+ without specific prior written permission.
+ 
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ DISCLAIMED. IN NO EVENT SHALL PHILIP KLUZ BE LIABLE FOR ANY DIRECT,
+ INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ 
+ */
+
+#import <Availability.h>
+
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>
+#import <CoreData/CoreData.h>
+#import "AppDelegate.h"
+#import <stdint.h>
+#import <unistd.h>
+#import "KnotesNavigationController.h"
+
+AppDelegate *glbAppdel;
+//define this constant if you want to use Masonry without the 'mas_' prefix
+#define NLSystemVersionGreaterOrEqualThan(version) ([[[UIDevice currentDevice] systemVersion] floatValue] >= version)
+#define IOS7_OR_LATER NLSystemVersionGreaterOrEqualThan(7.0)
+
+#define MONGO_HAVE_STDINT               // Define this if you have <stdint.h> for int64_t
+#define MONGO_HAVE_UNISTD               // Define this if you have <unistd.h> for int64_t
+#define MONGO_USE__INT64                // Define this if '__int64' is your compiler's 64bit type (MSVC)
+#define MONGO_USE_LONG_LONG_INT         // Define this if 'long long int' is your compiler's 64bit type
+
+#define MR_ENABLE_ACTIVE_RECORD_LOGGING 0
+
+#import "MagicalRecord.h"
+#import <Masonry/Masonry.h>
+#import "AppDelegate.h"
+#import "Global.h"
+#import "Constant.h"
+
+#endif
+
+// Disables log messages when debugging is turned off
+
+#ifdef DEBUG
+#ifndef DLog
+
+#define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+
+#endif
+
+#ifndef ALog
+#define ALog(...) [[NSAssertionHandler currentHandler] handleFailureInFunction:[NSString stringWithCString:__PRETTY_FUNCTION__ encoding:NSUTF8StringEncoding] file:[NSString stringWithCString:__FILE__ encoding:NSUTF8StringEncoding] lineNumber:__LINE__ description:__VA_ARGS__]
+#endif
+
+#else
+
+#define DLog(...)
+#ifndef NS_BLOCK_ASSERTIONS
+#define NS_BLOCK_ASSERTIONS
+#endif
+#define ALog(...) NSLog(@"%s %@", __PRETTY_FUNCTION__, [NSString stringWithFormat:__VA_ARGS__])
+
+#endif
+
+#define BIDT1()     NSDate* date = [NSDate date];
+#define BIDT2()     do{NSLog(@"%s>>>>>>>>>>>>> cost: %f", __PRETTY_FUNCTION__, [date timeIntervalSinceNow]*-1000);}while(0)
+#define NEW_FEATURE 1
+#define NEW_DESIGN 1
+#define New_DrawerDesign 1
+#define ChangeInDrawer 1

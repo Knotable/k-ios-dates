@@ -1,0 +1,36 @@
+platform :ios, '7.1'
+
+source 'https://github.com/CocoaPods/Specs.git'
+
+link_with ['Knotable', 'com.knotable.knotesdev.shareextension']
+
+pod "AFNetworking", "2.2.0"
+
+pod 'ObjectiveDDP', :git => 'https://github.com/boundsj/ObjectiveDDP.git'
+
+pod 'MCAWSS3Client', :git => 'https://github.com/mirego/MCAWSS3Client.git', :commit => '0d041484fd53e3806021ab27e0b860c002a406db'
+
+pod 'Masonry', :git => 'https://github.com/cloudkite/Masonry.git'
+
+pod 'MagicalRecord', :git => 'https://github.com/magicalpanda/MagicalRecord.git', :branch => 'release/3.0'
+
+pod 'ObjCMongoDB', :git => 'https://github.com/Knotable/ObjCMongoDB.git'
+
+pod 'FXKeychain', :git => 'https://github.com/nicklockwood/FXKeychain.git'
+
+pod 'SDWebImage', :git => 'https://github.com/rs/SDWebImage.git'
+
+pod 'OMPromises', :git => 'https://github.com/b52/OMPromises.git', :branch=> 'master'
+pod 'OMPromises/HTTP', :git => 'https://github.com/b52/OMPromises.git', :branch => 'master'
+
+pod 'ASIHTTPRequest/S3', '~> 1.8.2'
+
+pod 'pop', '~> 1.0'
+
+#pod 'YLProgressBar', '~> 3.5'
+
+pod 'MLPAutoCompleteTextField', '~> 1.5'
+
+pod 'LookbackSafe', :configurations => ['Debug', 'Release', 'Adhoc']
+
+pod 'M13OrderedDictionary'

@@ -1,0 +1,30 @@
+PODS:
+  - M13OrderedDictionary (1.0.5)
+  - ObjectiveDDP (0.1.9):
+    - M13OrderedDictionary
+    - SocketRocket (= 0.3.1-beta2)
+  - SDWebImage (3.7.1):
+    - SDWebImage/Core (= 3.7.1)
+  - SDWebImage/Core (3.7.1)
+  - SocketRocket (0.3.1-beta2)
+
+DEPENDENCIES:
+  - ObjectiveDDP (from `https://github.com/boundsj/ObjectiveDDP.git`)
+  - SDWebImage (~> 3.7.1)
+
+EXTERNAL SOURCES:
+  ObjectiveDDP:
+    :git: https://github.com/boundsj/ObjectiveDDP.git
+
+CHECKOUT OPTIONS:
+  ObjectiveDDP:
+    :commit: 369c61274c3895d9affcb20d32866a2db954b561
+    :git: https://github.com/boundsj/ObjectiveDDP.git
+
+SPEC CHECKSUMS:
+  M13OrderedDictionary: 17dd456dd096dc1de8f810b93d70ae964063e0ff
+  ObjectiveDDP: d7eb090d8ce678d83ff0645a03ff62e66a948b73
+  SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
+  SocketRocket: 79a68ae186063c65e1fe6f638b1ae2927aa5f304
+
+COCOAPODS: 0.35.0

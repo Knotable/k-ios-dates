@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="KnoteNPMV" customClass="KnoteNPMV"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" userLabel="KnoteNPMV Responder" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="TSx-Ic-NAn" userLabel="KnoteNPMView" customClass="KnoteNPMV">
+            <rect key="frame" x="0.0" y="0.0" width="222" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ra6-Rv-SFM" userLabel="Text Button">
+                    <rect key="frame" x="0.0" y="2" width="42" height="35"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="text_knote_normal.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="menuAction:" destination="TSx-Ic-NAn" eventType="touchUpInside" id="xsA-Hf-jnJ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="pwv-3T-xYg" userLabel="Deadline Button">
+                    <rect key="frame" x="60" y="2" width="42" height="35"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="deadline_knote_normal.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="menuAction:" destination="TSx-Ic-NAn" eventType="touchUpInside" id="gJh-1J-iNX"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gjQ-ny-rph" userLabel="Checklist Button">
+                    <rect key="frame" x="120" y="2" width="42" height="35"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="checklist_knote_normal.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="menuAction:" destination="TSx-Ic-NAn" eventType="touchUpInside" id="vmn-va-EQY"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GtU-Z3-A46" userLabel="Vote Button">
+                    <rect key="frame" x="180" y="2" width="42" height="35"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="vote_knote_normal.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="menuAction:" destination="TSx-Ic-NAn" eventType="touchUpInside" id="8l6-pG-MSJ"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="m_btnChecklist" destination="gjQ-ny-rph" id="E9K-QM-rCT"/>
+                <outlet property="m_btnDeadline" destination="pwv-3T-xYg" id="9sI-VU-cK6"/>
+                <outlet property="m_btnText" destination="ra6-Rv-SFM" id="9W9-h9-4RQ"/>
+                <outlet property="m_btnVote" destination="GtU-Z3-A46" id="OhE-hG-jYM"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="checklist_knote_normal.png" width="42" height="35"/>
+        <image name="deadline_knote_normal.png" width="42" height="35"/>
+        <image name="text_knote_normal.png" width="42" height="35"/>
+        <image name="vote_knote_normal.png" width="42" height="35"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

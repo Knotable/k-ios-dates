@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13D65" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Account" representedClassName="Account" syncable="YES">
+        <attribute name="hostname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastLoggedIn" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="port" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="address" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Address" inverseName="account" inverseEntity="Address" syncable="YES"/>
+        <relationship name="folders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Folder" inverseName="account" inverseEntity="Folder" syncable="YES"/>
+        <relationship name="inbox" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" syncable="YES"/>
+        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Message" inverseName="account" inverseEntity="Message" syncable="YES"/>
+    </entity>
+    <entity name="Address" representedClassName="Address" syncable="YES">
+        <attribute name="abRecordID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="address" inverseEntity="Account" syncable="YES"/>
+        <relationship name="message" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Message" inverseName="address" inverseEntity="Message" syncable="YES"/>
+        <relationship name="messagesBCC" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Message" inverseName="bcc" inverseEntity="Message" syncable="YES"/>
+        <relationship name="messagesCC" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Message" inverseName="cc" inverseEntity="Message" syncable="YES"/>
+        <relationship name="messagesFrom" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Message" inverseName="from" inverseEntity="Message" syncable="YES"/>
+        <relationship name="messagesReplyTo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Message" inverseName="replyTo" inverseEntity="Message" syncable="YES"/>
+        <relationship name="messagesTo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Message" inverseName="to" inverseEntity="Message" syncable="YES"/>
+    </entity>
+    <entity name="Attachment" representedClassName="Attachment" syncable="YES">
+        <attribute name="contentID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dateSaved" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="filename" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="haveFile" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="isImage" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="mimeType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="path" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="size" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="uniqueID" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="message" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Message" inverseName="attachments" inverseEntity="Message" syncable="YES"/>
+    </entity>
+    <entity name="Folder" representedClassName="Folder" syncable="YES">
+        <attribute name="delimiter" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstUID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="firstUnseenUid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="lastUID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="messageCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="modSeq" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="path" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uidNext" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="uidValidity" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="unreadCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="account" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="folders" inverseEntity="Account" syncable="YES"/>
+        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Message" inverseName="folder" inverseEntity="Message" syncable="YES"/>
+    </entity>
+    <entity name="Message" representedClassName="Message" syncable="YES">
+        <attribute name="archive" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="body" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="characterCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="deleted" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="draft" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="fetched" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="flagged" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="forwarded" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="fromAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fromName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gmailMessageIDS" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gmailThreadID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="messageID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="passed" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="processed" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="read" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="receivedDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="replied" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="sent" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="subject" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="submitPending" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="submitted" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="theadShow" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="wordCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="account" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="messages" inverseEntity="Account" syncable="YES"/>
+        <relationship name="address" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Address" inverseName="message" inverseEntity="Address" syncable="YES"/>
+        <relationship name="attachments" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Attachment" inverseName="message" inverseEntity="Attachment" syncable="YES"/>
+        <relationship name="bcc" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Address" inverseName="messagesBCC" inverseEntity="Address" syncable="YES"/>
+        <relationship name="cc" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Address" inverseName="messagesCC" inverseEntity="Address" syncable="YES"/>
+        <relationship name="folder" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="messages" inverseEntity="Folder" syncable="YES"/>
+        <relationship name="from" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Address" inverseName="messagesFrom" inverseEntity="Address" syncable="YES"/>
+        <relationship name="replyTo" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Address" inverseName="messagesReplyTo" inverseEntity="Address" syncable="YES"/>
+        <relationship name="to" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Address" inverseName="messagesTo" inverseEntity="Address" syncable="YES"/>
+        <fetchedProperty name="imageAttachments" optional="YES" syncable="YES">
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="Attachment" predicateString="message == $FETCH_SOURCE &amp;&amp; isImage == YES &amp;&amp; haveFile == YES"/>
+        </fetchedProperty>
+    </entity>
+    <entity name="Test" representedClassName="Test" syncable="YES">
+        <attribute name="attribute" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Message" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Account" positionX="-9" positionY="131" width="128" height="193"/>
+        <element name="Address" positionX="-315" positionY="36" width="128" height="193"/>
+        <element name="Attachment" positionX="-711" positionY="243" width="128" height="195"/>
+        <element name="Folder" positionX="-182" positionY="297" width="128" height="240"/>
+        <element name="Message" positionX="-522" positionY="36" width="128" height="599"/>
+        <element name="Test" positionX="-720" positionY="18" width="128" height="75"/>
+    </elements>
+</model>

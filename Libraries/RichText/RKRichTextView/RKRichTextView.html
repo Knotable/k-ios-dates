@@ -1,0 +1,351 @@
+<html>
+	<head>
+		<meta charset=utf-8 />
+        <meta name = "format-detection" content = "telephone=no">
+		<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=0" />
+            </head>
+    <script type="text/javascript">
+		var pageHeight; var touchmoved;
+        function checkHeight(e) {
+            pageHeight = document.getElementById('zss_editor_content').offsetHeight;
+            return true;
+        }
+        function setHighlight() {
+            if (rangy.getSelection().isCollapsed) {
+                return;
+            }
+            var hlapplier   = rangy.createCssClassApplier("highlight");
+            var serializedSelection = rangy.serializeSelection(rangy.getSelection(), true);
+            if (!serializedSelection) return;
+            try {
+                rangy.deserializeSelection(serializedSelection);
+                hlapplier.toggleSelection();
+            } catch (e) {
+                var text         = "has no child with index"
+                , rangeinvalid = e.message.indexOf(text) > -1;
+                if (rangeinvalid) alert("页面内容已改变，无法恢复选区高亮!");
+            }
+            rangy.getSelection().collapseToEnd();
+        }
+
+        function getHeight(){
+            return pageHeight;
+        }
+    
+    //Namespace management idea from http://enterprisejquery.com/2010/10/how-good-c-habits-can-encourage-bad-javascript-habits-part-1/
+    (function( cursorManager ) {
+        //From: http://www.w3.org/TR/html-markup/syntax.html#syntax-elements
+        var voidNodeTags = ['AREA', 'BASE', 'BR', 'COL', 'EMBED', 'HR', 'IMG', 'INPUT', 'KEYGEN', 'LINK', 'MENUITEM', 'META', 'PARAM', 'SOURCE', 'TRACK', 'WBR', 'BASEFONT', 'BGSOUND', 'FRAME', 'ISINDEX'];
+     
+        //From: http://stackoverflow.com/questions/237104/array-containsobj-in-javascript
+        Array.prototype.contains = function(obj) {
+            var i = this.length;
+            while (i--) {
+                if (this[i] === obj) {
+                    return true;
+                }
+            }
+            return false;
+        }
+     
+        //Basic idea from: http://stackoverflow.com/questions/19790442/test-if-an-element-can-contain-text
+        function canContainText(node) {
+            if(node.nodeType == 1) { //is an element node
+                return !voidNodeTags.contains(node.nodeName);
+            } else { //is not an element node
+                return false;
+            }
+        };
+     
+        function getLastChildElement(el){
+            var lc = el.lastChild;
+            while(lc.nodeType != 1) {
+            if(lc.previousSibling)
+                lc = lc.previousSibling;
+            else
+                break;
+            }
+            return lc;
+        }
+     
+        //Based on Nico Burns's answer
+        cursorManager.setEndOfContenteditable = function(contentEditableElement)
+        {
+     
+            while(getLastChildElement(contentEditableElement) &&
+                  canContainText(getLastChildElement(contentEditableElement))) {
+                contentEditableElement = getLastChildElement(contentEditableElement);
+            }
+     
+            var range,selection;
+            if(document.createRange)//Firefox, Chrome, Opera, Safari, IE 9+
+            {
+                range = document.createRange();//Create a range (a range is a like the selection but invisible)
+                range.selectNodeContents(contentEditableElement);//Select the entire contents of the element with the range
+                range.collapse(false);//collapse the range to the end point. false means collapse to end rather than the start
+                selection = window.getSelection();//get the selection object (allows you to change selection)
+                selection.removeAllRanges();//remove any selections already made
+                selection.addRange(range);//make the range you have just created the visible selection
+            }
+            else if(document.selection)//IE 8 and lower
+            {
+                range = document.body.createTextRange();//Create a range (a range is a like the selection but invisible)
+                range.moveToElementText(contentEditableElement);//Select the entire contents of the element with the range
+                range.collapse(false);//collapse the range to the end point. false means collapse to end rather than the start
+                range.select();//Select the range (make it the visible selection
+            }
+        }
+     
+     }( window.cursorManager = window.cursorManager || {}));
+    
+    function updateNodeAtRange(text, title) {
+        var sel = rangy.getSelection();
+        if (sel.rangeCount > 0) {
+            var htmlcontent=text;
+            sel.deleteFromDocument();
+            
+            var pl = document.createElement("span");
+            pl.innerHTML = ' ';
+            var range1 = sel.getRangeAt(0);
+            range1.insertNode(pl)
+            sel.setSingleRange(range1);
+            
+            
+            var el = document.createElement("span");
+            el.setAttribute( 'class', 'usertag' );
+            el.setAttribute( 'title', title );
+            el.innerHTML = htmlcontent;
+            var range = sel.getRangeAt(0);
+            range.insertNode(el);
+            sel.setSingleRange(range);
+
+        }
+        alert( document.getElementById('zss_editor_content').innerHTML );
+    }
+    
+    function insertTextAtCursor(html,title) {
+        var editableDiv = document.getElementById("zss_editor_content");
+<!--        updateNodeAtRange('@'+html,title);-->
+<!--        cursorManager.setEndOfContenteditable(editableDiv);-->
+
+        
+        var sel, range, node,endIndex,val;
+        if (window.getSelection) {
+            sel = window.getSelection();
+            if (sel.getRangeAt && sel.rangeCount) {
+                
+                range = window.getSelection().getRangeAt(0);
+                node = range.createContextualFragment(html+'&nbsp;');
+                range.insertNode(node);
+                
+                cursorManager.setEndOfContenteditable(editableDiv);
+            }
+        } else if (document.selection && document.selection.createRange) {
+            
+            document.selection.createRange().pasteHTML(html);
+        }
+    }
+
+        function placeCaretAtEnd(el) {
+            if (typeof window.getSelection != "undefined"
+                && typeof document.createRange != "undefined") {
+                var range = document.createRange();
+                range.selectNodeContents(el);
+                range.collapse(false);
+                var sel = window.getSelection();
+                sel.removeAllRanges();
+                sel.addRange(range);
+            } else if (typeof document.body.createTextRange != "undefined") {
+                var textRange = document.body.createTextRange();
+                textRange.moveToElementText(el);
+                textRange.collapse(false);
+                textRange.select();
+            }
+        }
+    
+        function focusin(){
+            location.href = "http://focusin.ru";
+        }
+    
+        function keyCodePress(e){
+            var key;
+            if(window.event)
+            {
+                key = window.event.keyCode; //IE
+            }
+            else
+            {
+                key = e.which; //firefox
+            }
+            if (key == 64) //@
+            {
+                document.location = "Metion:";
+            }
+            else
+            {
+                document.location = "InsertText:" + key;
+            }
+            // ENTER KEY MUNBER IS 13 // KD
+            return true;
+        }
+        </script>
+    
+    <script>
+        <!--editor-->
+    </script>
+    
+    <style type="text/css">
+        /*
+        p,ul,ol{
+            margin:0;
+            padding-left:20;
+        }
+         */
+        span.highlight {
+            background:#FFFF00
+        }
+        span.usertag {
+            background:#AAAAAA
+        }
+
+        #wrap{
+            font-size: 12px;
+            line-height: 1.5;
+            font-family: "Helvetica Neue";
+            color: rgb(64, 61, 60);
+            height: 100%;
+            width: 100%;
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+        }
+        /*
+         for iPhone use different style
+         */
+        @media only screen
+        and (max-device-width : 568px){
+            #wrap{
+                font-size: 16px;
+                font-family: "Helvetica Neue";
+                line-height: 1.5;
+                color: rgb(64, 61, 60);
+                height: 100%;
+                width: 100%;
+                overflow-y: scroll;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+
+        #zss_editor_content{
+            min-height: 73px;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+        }
+        </style>
+	<body onload="return checkHeight(event)" onKeyPress="return keyCodePress(event)">
+		<div id="wrap">
+            <div id="zss_editor_content" spellcheck="false" class="entryBody" onfocus="focusin()" onkeyup="return checkHeight(event)" contenteditable="true" name="content">{%content}</div>
+		</div>
+        <script>
+            <!--editor1-->
+        </script>
+        <script>
+            <!--editor2-->
+        </script>
+        <script>
+            <!--editor3-->
+        </script>
+		<script type="text/javascript">
+
+        var findLastElem = function(range, array)
+        {
+            var ret = false;
+            var elem;
+            var length = 0;
+
+            for (var i = array.length - 1; i >= 0; i--)
+            {
+                elem = array[i];
+                if(elem.tagName)
+                { // is a html element
+                    length = elem.innerHTML.trim().length
+                    if (length>0)
+                    {
+                        if (elem.childNodes.length==1)
+                        {
+
+                            if (elem.childNodes[0].textContent.trim().length>0)
+                            {
+                                if (elem.childNodes[0].tagName)
+                                {
+                                    ret = findLastElem(range,elem.childNodes);
+                                    if(ret==true)
+                                    {
+                                        break;
+                                    }
+                                } else {
+                                    ret = true;
+                                    length = elem.innerHTML.length
+                                    range.selectNodeContents(elem);
+                                    range.collapse(true);
+                                    range.setStart(elem.childNodes[0], length);
+                                    range.setEnd(elem.childNodes[0], length);
+                                    break;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (elem.childNodes.length>1)
+                            {
+                                ret = findLastElem(range,elem.childNodes);
+                                if(ret==true)
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    length = elem.textContent.trim().length
+                    if (length>0)
+                    {
+                        ret = true;
+                        length = elem.textContent.length
+                        range.selectNodeContents(elem);
+                        range.collapse(true);
+                        range.setStart(elem,length);
+                        range.setEnd(elem, length);
+                        break;
+                    }
+                }
+            }
+            return ret;
+        }
+
+        var div = document.getElementById("zss_editor_content");    
+        div.onfocus = function() {
+            window.setTimeout(function() {
+                var sel, range;
+                if (window.getSelection && document.createRange)
+                {
+                    range = document.createRange();    
+                    findLastElem(range,div.childNodes);
+
+                    sel = window.getSelection();
+                    sel.removeAllRanges();
+                    sel.addRange(range);
+                }
+                else if (document.body.createTextRange)
+                {
+                    range = document.body.createTextRange();
+                    range.moveToElementText(div);
+                    range.collapse(true);
+                    range.select();
+                }
+            }, 1);
+        };
+        div.focus();
+        </script>
+    </body>
+</html>

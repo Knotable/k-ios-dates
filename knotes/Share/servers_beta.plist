@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>Beta</string>
+		<key>id</key>
+		<string>beta</string>
+		<key>application_host</key>
+		<string>ios.lb.beta.knotable.com</string>
+		<key>application_host1</key>
+		<array>
+			<string>ios.lb.beta.knotable.com</string>
+			<string>desktop.knotable.com</string>
+		</array>
+		<key>mongodb_host_index</key>
+		<integer>0</integer>
+		<key>application_host_index</key>
+		<integer>0</integer>
+		<key>mongodb_database</key>
+		<string>alpha2</string>
+		<key>mongodb_needs_auth</key>
+		<true/>
+		<key>mongodb_username</key>
+		<string>knotable-alpha</string>
+		<key>mongodb_password</key>
+		<string>769TA9NHWL3M</string>
+		<key>s3_bucket</key>
+		<string>knotable-assets-alpha</string>
+		<key>s3_access_key</key>
+		<string>AKIAJMNEFA3F7BS2EOWA</string>
+		<key>s3_secret_key</key>
+		<string>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</string>
+		<key>google_client_id</key>
+		<string>878886050904-vencjlr2jvmark8v0r8fi1g9785g42hu.apps.googleusercontent.com</string>
+		<key>google_client_secret</key>
+		<string>clXTj-LMdEJpTZt4S54RbcFD</string>
+	</dict>
+</array>
+</plist>

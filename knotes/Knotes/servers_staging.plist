@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>Staging</string>
+		<key>id</key>
+		<string>staging</string>
+		<key>application_host</key>
+		<string>i1.staging.knotable.com</string>
+		<key>mongodb_host</key>
+		<string>db1.staging.knotable.com:27017</string>
+		<key>mongodb_database</key>
+		<string>knotable</string>
+		<key>mongodb_needs_auth</key>
+		<true/>
+		<key>mongodb_username</key>
+		<string>knotable</string>
+		<key>mongodb_password</key>
+		<string>oIg40sckDH245h</string>
+		<key>s3_bucket</key>
+		<string>knotable-assets-staging</string>
+		<key>s3_access_key</key>
+		<string>AKIAIL3NKGWOSVY37KCQ</string>
+		<key>s3_secret_key</key>
+		<string>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</string>
+		<key>google_client_id</key>
+		<string>170426069497.apps.googleusercontent.com</string>
+		<key>google_client_secret</key>
+		<string>CNBRPvYzDRcgSS_jtkZrWDeG</string>
+	</dict>
+</array>
+</plist>
